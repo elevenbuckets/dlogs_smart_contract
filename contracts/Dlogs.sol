@@ -2,11 +2,10 @@ pragma solidity ^0.4.24;
 
 import "./SafeMath.sol";
 // import "./Register.sol";
-
 // @title Main Contract for Dlogs
 
-interface Register{
-    function isRegistered(address addr) view returns (bool);
+contract Register{
+    function isRegistered(address addr) public view returns (bool);
 }
 
 contract Dlogs{
@@ -52,8 +51,7 @@ contract Dlogs{
 
     //TODO: This is playing function, needs to be deleted 
     function isRegistered(address addr) public view returns (bool){
-        return register.call(bytes4(sha3("isRegistered(address)")), addr);
-        // return Register(register).isRegistered(0x362ea687b8a372a0235466a097e578d55491d37f);
+         return Register(register).isRegistered(addr);
     }
 
     function getRegisterAddress(address addr) public view returns (address){

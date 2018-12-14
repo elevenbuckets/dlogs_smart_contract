@@ -46,7 +46,7 @@ contract Register{
         return true;
     }
 
-    function isRegistered(address addr) external view returns (bool){
+    function isRegistered(address addr) public view returns (bool){
         return mapFromAddress[addr]!= 0;
     }
 
