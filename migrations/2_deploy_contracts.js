@@ -1,5 +1,5 @@
 var Dlogs = artifacts.require("./Dlogs.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(Dlogs, "0x1b366458dceb0707a54b384a2c801d6df02cbec9");
+  deployer.deploy(Dlogs,"0xc30f56938fd3dd5634b1b3f6ae494c6656de1021");
 };

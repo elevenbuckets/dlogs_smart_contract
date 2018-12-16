@@ -1,8 +1,9 @@
 pragma solidity ^0.4.24;
+import "./RegisterBasic.sol";
 
 // @title Registration for Dlogs
 
-contract Register{
+contract Register is RegisterBasic{
     struct User {
         address addr;
         string ipns;

@@ -1,12 +1,8 @@
 pragma solidity ^0.4.24;
 
 import "./SafeMath.sol";
-// import "./Register.sol";
+import "./RegisterBasic.sol";
 // @title Main Contract for Dlogs
-
-contract Register{
-    function isRegistered(address addr) public view returns (bool);
-}
 
 contract Dlogs{
     using SafeMath for uint256;
@@ -27,7 +23,7 @@ contract Dlogs{
     // the cost to write a blog is 0.001 ETH
     uint256 private costForLikeOrDislike = 1000000000000000;
     uint private totalNumberOfLikes;
-    address register;
+    address public register;
 
 
     constructor(address _addr) public {
@@ -40,7 +36,7 @@ contract Dlogs{
 	}
 
     modifier whenRegistered(address user) {
-        require(Register(register).isRegistered(user));
+        require(RegisterBasic(register).isRegistered(user));
         _;
     }
 
@@ -49,12 +45,7 @@ contract Dlogs{
         _;
     }
 
-    //TODO: This is playing function, needs to be deleted 
-    function isRegistered(address addr) public view returns (bool){
-         return Register(register).isRegistered(addr);
-    }
-
-    function getRegisterAddress(address addr) public view returns (address){
+    function getRegisterAddress() public view returns (address){
         return register;
     }
 
